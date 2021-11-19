@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+     # The following is explicit but redundant:
+     # render template: "posts/index.html/erb", layout: "application"
   end
 
   # GET /posts/1 or /posts/1.json
