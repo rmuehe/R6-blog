@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     end
 
     def show
-        render plain: params[:id]
+        @page = Page.find(params[:id])
+        render plain: @page.title
     end
 end
