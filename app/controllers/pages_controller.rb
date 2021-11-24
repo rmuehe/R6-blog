@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     def new
         @page = Page.new
     end
+
+    def create
+        render plain: params.to_json
+    end
 end
