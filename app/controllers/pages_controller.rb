@@ -21,4 +21,11 @@ class PagesController < ApplicationController
     def edit
         @page = Page.find(params[:id])
     end
+
+    def update
+        @page = Page.find(params[:id])
+        page_params = params.require(:page).permit(:title, :body, :slug)
+        @page.update(page_params)
+        redirect_to @page
+    end
 end
