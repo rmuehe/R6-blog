@@ -19,6 +19,6 @@ class PagesController < ApplicationController
     end
 
     def edit
-        @page = Page.find(params(:id))
+        @page = Page.find(params[:id])
     end
 end
