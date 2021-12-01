@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :set_post
+    before_action :set_comment, only: [:update, :destroy]
 
     def create
         # @post = Post.find(params[:post_id])
@@ -13,8 +14,14 @@ class CommentsController < ApplicationController
     end
 
     def update
-        @comment = Comment.find(params[:id])
+        # @comment = Comment.find(params[:id])
         @comment.update(comment_params)
+        redirect_to @post
+    end
+
+    def destroy
+        # @comment = Comment.find(params[:id])
+        @comment.destroy
         redirect_to @post
     end
 
@@ -25,5 +32,9 @@ class CommentsController < ApplicationController
     
     def set_post
         @post = Post.find(params[:post_id])
-    end    
+    end
+    
+    def set_comment
+        @comment = Comment.find(params[:id])
+    end
 end
