@@ -12,6 +12,12 @@ class CommentsController < ApplicationController
         @comment = Comment.find(params[:id])
     end
 
+    def update
+        @comment = Comment.find(params[:id])
+        @comment.update(comment_params)
+        redirect_to @post
+    end
+
     private
     def comment_params
         params.require(:comment).permit(:name, :content)
