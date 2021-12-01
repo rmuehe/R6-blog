@@ -13,7 +13,7 @@
 <%# shows all the comments for a post %>
 <div id="comments">
   <h1>Comments</h1>
-    <%= render partial: "comments/comment", collection: @post.comments %>
+    <%= render @post.comments %>
 </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
